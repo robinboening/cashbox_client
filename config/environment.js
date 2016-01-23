@@ -13,9 +13,15 @@ module.exports = function(environment) {
       }
     },
 
+    moment: {
+      includeLocales: true
+    },
+
     contentSecurityPolicy: {
       'default-src': "'self'",
       'script-src': "'self'",
+      'style-src': "'self' fonts.googleapis.com",
+      'font-src': "'self' data: fonts.gstatic.com",
       'connect-src': "'self' http://localhost:3000",
       'media-src': "'self'"
     },
