@@ -7,7 +7,12 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('cashboxes', function() {
-    this.route('index', { path: "/" });
+    this.route('show', { path: '/:cashbox_id' });
+    this.route('edit', { path: '/:cashbox_id/edit' });
+
+    this.route('books', { resetNamespace: true }, function() {
+      this.route('show', { path: '/:book_id' });
+    });
   });
 });
 

@@ -1,6 +1,9 @@
 {{outlet}}
-<ul>
+
+<h1>Cashboxes</h1>
+
+<ul class="cashboxes">
   {{#each model as |cashbox|}}
-    <li>{{cashbox.name}}</li>
+    <li class="cashbox">{{#link-to "cashboxes.show" cashbox}}{{cashbox.name}}{{/link-to}}</li>
   {{/each}}
 </ul>

@@ -1,0 +1,18 @@
+{{outlet}}
+
+<h1>Cashbox {{model.cashbox.name}}</h1>
+
+{{#link-to "cashboxes.show" model.cashbox}}Back to Cashbox "{{model.cashbox.name}}"{{/link-to}}
+
+<h2>{{moment-format model.opened_at}}</h2>
+
+<p>Opening balance: {{model.opening_balance}}</p>
+
+<ul class="line_items">
+  {{#each model.line_items as |item|}}
+    <li class="line_item">
+      <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
+      <p>Amount: {{item.amount}} EUR</p>
+    </li>
+  {{/each}}
+</ul>

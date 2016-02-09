@@ -1,0 +1,17 @@
+{{outlet}}
+
+<h1>Cashbox "{{model.name}}"</h1>
+
+{{#link-to "cashboxes.index"}}Back to all Cashboxes{{/link-to}}
+
+<ul class="books">
+  {{#each model.books as |book|}}
+    <li class="book">
+      {{#link-to "books.show" book}}
+        <h1>{{moment-format book.opened_at 'l'}}</h1>
+        <p>Opening balance: {{book.opening_balance}} EUR</p>
+        <p>Total: {{book.total}} EUR</p>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

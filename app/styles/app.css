@@ -1,0 +1,26 @@
+body {
+  padding: 15px;
+}
+
+li {
+  padding: 20px;
+  background: #F9F9F9;
+}
+
+li:nth-child(even) {
+  background: transparent;
+}
+
+.book {
+  width: 250px;
+  height: 300px;
+  background: #333;
+  color: #FFF;
+  padding: 20px;
+  margin: 20px;
+}
+
+.book a {
+  display: block;
+  height: 100%;
+}
