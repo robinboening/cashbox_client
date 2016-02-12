@@ -6,12 +6,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('cashboxes', function() {
+  this.resource('cashboxes', function() {
     this.route('show', { path: '/:cashbox_id' });
     this.route('edit', { path: '/:cashbox_id/edit' });
 
-    this.route('books', { resetNamespace: true }, function() {
+    this.resource('books', { resetNamespace: true }, function() {
       this.route('show', { path: '/:book_id' });
+      this.route('edit', { path: '/:book_id/edit' });
     });
   });
 });

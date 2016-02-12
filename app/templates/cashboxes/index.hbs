@@ -1,9 +1,18 @@
-{{outlet}}
+{{#top-bar title="Your Cashboxes"}}{{/top-bar}}
 
-<h1>Cashboxes</h1>
+{{#new-cashbox createCashbox="createCashbox"}}{{/new-cashbox}}
 
-<ul class="cashboxes">
-  {{#each model as |cashbox|}}
-    <li class="cashbox">{{#link-to "cashboxes.show" cashbox}}{{cashbox.name}}{{/link-to}}</li>
-  {{/each}}
-</ul>
+<div>
+  <div class="ui segment">
+    <div class="ui massive relaxed center aligned divided list">
+      {{#each model as |cashbox|}}
+        {{#link-to "cashboxes.show" cashbox class="item"}}
+          <i class="right travel icon"></i>
+          <div class="content">
+            <div class="header">{{cashbox.name}}</div>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+</div>

@@ -1,18 +1,28 @@
-{{outlet}}
+{{#top-bar
+  title=model.name
+  backRoute="cashboxes.show"
+  backModel=model.cashbox
+  editRoute="books.edit"
+  editModel=model
+}}{{/top-bar}}
 
-<h1>Cashbox {{model.cashbox.name}}</h1>
+<div class="main_content">
 
-{{#link-to "cashboxes.show" model.cashbox}}Back to Cashbox "{{model.cashbox.name}}"{{/link-to}}
+  <p>Opening Balance: {{model.opening_balance}}</p>
 
-<h2>{{moment-format model.opened_at}}</h2>
+  <ul class="line_items">
+    {{#each model.line_items as |item|}}
+      <li class="line_item">
+        <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
+        <p>Amount: {{item.amount}} EUR</p>
+      </li>
+    {{/each}}
+  </ul>
 
-<p>Opening balance: {{model.opening_balance}}</p>
+  <h2>Total: {{model.total}}</h2>
+  <p>Opened at: {{moment-format model.opened_at 'l'}}</p>
+  {{#if model.closed_at}}
+    <p>Closed at: {{moment-format model.closed_at 'l'}}</p>
+  {{/if}}
 
-<ul class="line_items">
-  {{#each model.line_items as |item|}}
-    <li class="line_item">
-      <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
-      <p>Amount: {{item.amount}} EUR</p>
-    </li>
-  {{/each}}
-</ul>
+</div>

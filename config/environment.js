@@ -20,7 +20,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'self'",
       'script-src': "'self'",
-      'style-src': "'self' fonts.googleapis.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'font-src': "'self' data: fonts.gstatic.com",
       'connect-src': "'self' http://localhost:3000",
       'media-src': "'self'"

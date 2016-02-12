@@ -1,6 +1,0 @@
-{{outlet}}
-<ul>
-  {{#each model as |book|}}
-    <li>{{#link-to "books.edit" book}}{{moment-format book.opened_at}}{{/link-to}}</li>
-  {{/each}}
-</ul>

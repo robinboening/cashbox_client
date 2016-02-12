@@ -1,14 +1,13 @@
 body {
-  padding: 15px;
+  padding: 0px;
 }
 
-li {
-  padding: 20px;
-  background: #F9F9F9;
+h1 {
+  margin: 0;
 }
 
-li:nth-child(even) {
-  background: transparent;
+.ui.segment {
+  border-radius: 0;
 }
 
 .book {

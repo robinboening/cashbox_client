@@ -1,0 +1,14 @@
+{{#top-bar
+  title=model.name
+  backRoute="cashboxes.show"
+  backModel=model
+}}{{/top-bar}}
+
+{{#edit-cashbox cashbox=model updateName="updateName"}}{{/edit-cashbox}}
+<div>
+  <div class="ui segment">
+    <button class="ui fluid negative huge button" {{action 'destroyCashbox' model}}>
+      <i class="icon trash outline"></i> Delete
+    </button>
+  </div>
+</div>
