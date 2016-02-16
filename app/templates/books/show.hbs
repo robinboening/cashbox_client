@@ -8,13 +8,19 @@
 
 {{#book-metainformation book=model}}{{/book-metainformation}}
 
-<ul class="line_items">
-  {{#each model.line_items as |item|}}
-    <li class="line_item">
-      <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
-      <p>Amount: {{item.amount}} EUR</p>
-    </li>
-  {{/each}}
-</ul>
+<div class="ui attached segment">
+  <table class="ui single line table">
+    <tbody>
+      {{#each model.line_items as |item|}}
+        <tr {{bind-attr class="item.isPositive:positive:negative"}}>
+          <td>{{moment-format item.charged_at 'l'}}</td>
+          <td>Matter</td>
+          <td>{{item.receipt_url}}</td>
+          <td>{{item.amount}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
 {{#book-metainformation book=model}}{{/book-metainformation}}
