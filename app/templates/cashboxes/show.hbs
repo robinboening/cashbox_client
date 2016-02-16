@@ -6,20 +6,25 @@
 }}{{/top-bar}}
 
 <div>
-  <div class="ui attached segment">
-    <div class="ui large relaxed center aligned selection divided list">
+  <div class="ui segment">
+    <div class="ui big relaxed center aligned selection divided list">
       {{#each model.books as |book|}}
         {{#link-to "books.show" book class="item"}}
-          <i {{bind-attr class=":ui :huge :book :icon book.closed_at:red"}}></i>
+          <i class="icon">
+            <i class="huge icons">
+              <i {{bind-attr class=":book :icon book.isClosed:disabled:teal"}}></i>
+              <i {{bind-attr class=":corner :icon book.isClosed:archive:write"}}></i>
+            </i>
+          </i>
           <div class="content middle aligned">
             <div class="header">{{book.name}}</div>
             <div class="description">
-              <p>
+              {{#if book.isClosed}}
+                {{moment-format book.opened_at 'l'}} - {{moment-format book.closed_at 'l'}}
+              {{else}}
+                Total: {{book.total}}<br>
                 Opened at: {{moment-format book.opened_at 'l'}}<br>
-                Opening Balance: {{book.opening_balance}}<br>
-                Total: {{book.total}}
-                Closed at: {{moment-format book.closed_at 'l'}}
-              </p>
+              {{/if}}
             </div>
           </div>
         {{/link-to}}

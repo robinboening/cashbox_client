@@ -7,5 +7,14 @@ export default DS.Model.extend({
   opened_at:       DS.attr('date'),
   closed_at:       DS.attr('date'),
   opening_balance: DS.attr('number'),
-  total:           DS.attr('number')
+  total:           DS.attr('number'),
+
+  isClosed: Ember.computed('closed_at', function() {
+    if(this.get('closed_at')) {
+      return true
+    }
+    else {
+      return false;
+    }
+  })
 });
