@@ -5,18 +5,25 @@
   editModel=model
 }}{{/top-bar}}
 
-<div class="main_content">
-
-  <ul class="books">
-    {{#each model.books as |book|}}
-      <li class="book">
-        {{#link-to "books.show" book}}
-          <h1>{{moment-format book.opened_at 'l'}}</h1>
-          <p>Opening Balance: {{book.opening_balance}}</p>
-          <p>Total: {{book.total}}</p>
+<div>
+  <div class="ui attached segment">
+    <div class="ui large relaxed center aligned selection divided list">
+      {{#each model.books as |book|}}
+        {{#link-to "books.show" book class="item"}}
+          <i {{bind-attr class=":ui :huge :book :icon book.closed_at:red"}}></i>
+          <div class="content middle aligned">
+            <div class="header">{{book.name}}</div>
+            <div class="description">
+              <p>
+                Opened at: {{moment-format book.opened_at 'l'}}<br>
+                Opening Balance: {{book.opening_balance}}<br>
+                Total: {{book.total}}
+                Closed at: {{moment-format book.closed_at 'l'}}
+              </p>
+            </div>
+          </div>
         {{/link-to}}
-      </li>
-    {{/each}}
-  </ul>
-
+      {{/each}}
+    </div>
+  </div>
 </div>

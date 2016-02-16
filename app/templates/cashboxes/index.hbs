@@ -4,11 +4,11 @@
 
 <div>
   <div class="ui segment">
-    <div class="ui massive relaxed center aligned divided list">
+    <div class="ui massive relaxed center aligned selection divided list">
       {{#each model as |cashbox|}}
         {{#link-to "cashboxes.show" cashbox class="item"}}
-          <i class="right travel icon"></i>
-          <div class="content">
+          <i class="right large travel icon"></i>
+          <div class="content middle aligned">
             <div class="header">{{cashbox.name}}</div>
           </div>
         {{/link-to}}

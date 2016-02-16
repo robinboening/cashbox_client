@@ -1,38 +1,36 @@
-<div class="ui segment inverted center aligned">
-  <div class="ui container">
+<div class="ui attached segment inverted center aligned">
 
-    {{#if backRoute}}
-    <div class="ui animated left floated large button" tabindex="0">
-      {{#if backModel}}
-        {{#link-to backRoute backModel}}
-          <div class="visible content">Back</div>
-          <div class="hidden content">
-            <i class="left arrow icon"></i>
-          </div>
-        {{/link-to}}
-      {{else}}
-        {{#link-to backRoute}}
-          <div class="visible content">Back</div>
-          <div class="hidden content">
-            <i class="left arrow icon"></i>
-          </div>
-        {{/link-to}}
-      {{/if}}
-    </div>
-    {{/if}}
-
-    {{#if editRoute}}
-    <div class="ui animated right floated large button" tabindex="0">
-      {{#link-to editRoute editModel}}
-        <div class="visible content">Edit</div>
+  {{#if backRoute}}
+  <div class="ui animated left floated large button" tabindex="0">
+    {{#if backModel}}
+      {{#link-to backRoute backModel}}
+        <div class="visible content">Back</div>
         <div class="hidden content">
-          <i class="edit icon"></i>
+          <i class="left arrow icon"></i>
         </div>
       {{/link-to}}
-    </div>
+    {{else}}
+      {{#link-to backRoute}}
+        <div class="visible content">Back</div>
+        <div class="hidden content">
+          <i class="left arrow icon"></i>
+        </div>
+      {{/link-to}}
     {{/if}}
-
-    <h1>{{title}}</h1>
-
   </div>
+  {{/if}}
+
+  {{#if editRoute}}
+  <div class="ui animated right floated large button" tabindex="0">
+    {{#link-to editRoute editModel}}
+      <div class="visible content">Edit</div>
+      <div class="hidden content">
+        <i class="configure icon"></i>
+      </div>
+    {{/link-to}}
+  </div>
+  {{/if}}
+
+  <h1>{{title}}</h1>
+
 </div>

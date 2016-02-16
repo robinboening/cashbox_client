@@ -6,23 +6,15 @@
   editModel=model
 }}{{/top-bar}}
 
-<div class="main_content">
+{{#book-metainformation book=model}}{{/book-metainformation}}
 
-  <p>Opening Balance: {{model.opening_balance}}</p>
+<ul class="line_items">
+  {{#each model.line_items as |item|}}
+    <li class="line_item">
+      <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
+      <p>Amount: {{item.amount}} EUR</p>
+    </li>
+  {{/each}}
+</ul>
 
-  <ul class="line_items">
-    {{#each model.line_items as |item|}}
-      <li class="line_item">
-        <p>Charged at: {{moment-format item.charged_at 'l'}}</p>
-        <p>Amount: {{item.amount}} EUR</p>
-      </li>
-    {{/each}}
-  </ul>
-
-  <h2>Total: {{model.total}}</h2>
-  <p>Opened at: {{moment-format model.opened_at 'l'}}</p>
-  {{#if model.closed_at}}
-    <p>Closed at: {{moment-format model.closed_at 'l'}}</p>
-  {{/if}}
-
-</div>
+{{#book-metainformation book=model}}{{/book-metainformation}}

@@ -1,0 +1,10 @@
+<div class="ui attached center aligned segment">
+  <h2>Total: {{book.total}}</h2>
+  <p>
+    Opened at: {{moment-format book.opened_at 'l'}}<br>
+    Opening Balance: {{book.opening_balance}}
+  </p>
+  {{#if book.closed_at}}
+    <p>Closed at: {{moment-format book.closed_at 'l'}}</p>
+  {{/if}}
+</div>
