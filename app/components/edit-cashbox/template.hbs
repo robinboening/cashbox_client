@@ -1,6 +1,6 @@
 <div class="ui fluid huge action input">
   {{input type="text" id="edit-cashbox" value=cashbox.name enter="updateName"}}
-  <button class="ui teal right labeled icon button" {{action "updateName"}}>
+  <button class="ui teal right labeled icon button" {{action "updateName" cashbox.name}}>
     Update
     <i class="travel icon"></i>
   </button>
