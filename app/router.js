@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('cashboxes', function() {
+    this.route('new', { path: '/new' });
     this.route('show', { path: '/:cashbox_id' });
     this.route('edit', { path: '/:cashbox_id/edit' });
 

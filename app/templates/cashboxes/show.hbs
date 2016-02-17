@@ -5,64 +5,66 @@
   editModel=model
 }}{{/top-bar}}
 
-
-<div class="ui segment">
-  <div class="ui massive relaxed center aligned selection divided list">
-    {{#each model.books as |book|}}
-      {{#link-to "books.show" book class="item"}}
-        <i class="big icon">
-          <i class="large icons">
-            <i {{bind-attr class=":book :icon book.isClosed:disabled:teal"}}></i>
-            <i {{bind-attr class=":corner :icon book.isClosed:archive:write"}}></i>
+<div class="ui container">
+  <div class="ui top attached segment">
+    <div class="ui massive relaxed center aligned divided list">
+      {{#each model.books as |book|}}
+        {{#link-to "books.show" book class="item"}}
+          <i class="big icon">
+            <i class="large icons">
+              <i {{bind-attr class=":book :icon book.isClosed:disabled:teal"}}></i>
+              <i {{bind-attr class=":corner :icon book.isClosed:archive:write"}}></i>
+            </i>
           </i>
-        </i>
-        <div class="content middle aligned">
-          <div class="header">
-            <h2>{{book.name}}</h2>
-          </div>
-          <div class="description">
+          <div class="content middle aligned">
+            <div class="header">
+              <h2>{{book.name}}</h2>
+            </div>
+            <div class="description">
 
-            <div class="ui horizontal relaxed divided list">
+              <div class="ui horizontal relaxed divided list">
 
-            {{#if book.isClosed}}
-              <div class="item">
-                <div class="content">
-                  <div class="header">{{moment-format book.opened_at 'l'}}</div>
-                  <div class="description">Opened</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="header">{{moment-format book.closed_at 'l'}}</div>
-                  <div class="description">
-                    Closed
+              {{#if book.isClosed}}
+                <div class="item">
+                  <div class="content">
+                    <div class="header">{{moment-format book.opened_at 'l'}}</div>
+                    <div class="description">Opened</div>
                   </div>
                 </div>
-              </div>
-            {{else}}
-
-              <div class="item">
-                <div class="content">
-                  <div class="header">{{moment-format book.opened_at 'l'}}</div>
-                  <div class="description">Opened</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="header">{{book.total}} <i class="fitted euro icon currency_symbol"></i></div>
-                  <div class="description">
-                    Total
+                <div class="item">
+                  <div class="content">
+                    <div class="header">{{moment-format book.closed_at 'l'}}</div>
+                    <div class="description">
+                      Closed
+                    </div>
                   </div>
                 </div>
-              </div>
+              {{else}}
 
-            {{/if}}
+                <div class="item">
+                  <div class="content">
+                    <div class="header">{{moment-format book.opened_at 'l'}}</div>
+                    <div class="description">Opened</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="content">
+                    <div class="header">{{book.total}} <i class="fitted euro icon currency_symbol"></i></div>
+                    <div class="description">
+                      Total
+                    </div>
+                  </div>
+                </div>
+
+              {{/if}}
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-      {{/link-to}}
-    {{/each}}
+        {{/link-to}}
+      {{/each}}
+    </div>
   </div>
+  {{#create-button}}{{/create-button}}
 </div>

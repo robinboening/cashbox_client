@@ -1,32 +1,34 @@
-<div class="ui padded inverted blue center aligned segment">
+<div class="ui inverted blue center aligned segment">
+  <div class="ui container">
 
-  {{#if backRoute}}
-    {{#if backModel}}
-      {{#link-to backRoute backModel class="ui animated left floated large inverted blue button" tabindex="0"}}
-        <div class="visible content">Back</div>
+    {{#if backRoute}}
+      {{#if backModel}}
+        {{#link-to backRoute backModel class="ui animated left floated large inverted blue button" tabindex="0"}}
+          <div class="visible content">Back</div>
+          <div class="hidden content">
+            <i class="left arrow icon"></i>
+          </div>
+        {{/link-to}}
+      {{else}}
+        {{#link-to backRoute class="ui animated left floated large inverted blue button" tabindex="0"}}
+          <div class="visible content">Back</div>
+          <div class="hidden content">
+            <i class="left arrow icon"></i>
+          </div>
+        {{/link-to}}
+      {{/if}}
+    {{/if}}
+
+    {{#if editRoute}}
+      {{#link-to editRoute editModel class="ui animated right floated large inverted blue button" tabindex="1"}}
+        <div class="visible content">Edit</div>
         <div class="hidden content">
-          <i class="left arrow icon"></i>
-        </div>
-      {{/link-to}}
-    {{else}}
-      {{#link-to backRoute class="ui animated left floated large inverted blue button" tabindex="0"}}
-        <div class="visible content">Back</div>
-        <div class="hidden content">
-          <i class="left arrow icon"></i>
+          <i class="configure icon"></i>
         </div>
       {{/link-to}}
     {{/if}}
-  {{/if}}
 
-  {{#if editRoute}}
-    {{#link-to editRoute editModel class="ui animated right floated large inverted blue button" tabindex="1"}}
-      <div class="visible content">Edit</div>
-      <div class="hidden content">
-        <i class="configure icon"></i>
-      </div>
-    {{/link-to}}
-  {{/if}}
+    <h1>{{title}}</h1>
 
-  <h1>{{title}}</h1>
-
+  </div>
 </div>

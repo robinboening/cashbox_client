@@ -1,16 +1,18 @@
 {{#top-bar title="Your Cashboxes"}}{{/top-bar}}
 
-<div class="ui segment">
-  {{#new-cashbox createCashbox="createCashbox"}}{{/new-cashbox}}
-
-  <div class="ui massive relaxed center aligned selection divided list">
-    {{#each model as |cashbox|}}
-      {{#link-to "cashboxes.show" cashbox class="item"}}
-        <i class="right large teal travel icon"></i>
-        <div class="content middle aligned">
-          <div class="header">{{cashbox.name}}</div>
-        </div>
-      {{/link-to}}
-    {{/each}}
+<div class="ui container">
+  <div class="ui top attached segment">
+    <div class="ui massive relaxed center aligned divided list">
+      {{#each model as |cashbox|}}
+        {{#link-to "cashboxes.show" cashbox class="item"}}
+          <i class="right large teal travel icon"></i>
+          <div class="content middle aligned">
+            <div class="header">{{cashbox.name}}</div>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    </div>
   </div>
+  {{#create-button form="cashboxes.new"}}{{/create-button}}
 </div>
+
