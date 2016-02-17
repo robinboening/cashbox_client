@@ -4,12 +4,14 @@
   backModel=model
 }}{{/top-bar}}
 
-{{#edit-cashbox cashbox=model updateName="updateName"}}{{/edit-cashbox}}
+<div class="ui secondary segment">
+  {{#edit-cashbox cashbox=model updateName="updateName"}}{{/edit-cashbox}}
 
-<div>
-  <div class="ui segment">
-    <button class="ui fluid negative huge button" {{action 'destroyCashbox' model}}>
-      <i class="icon trash outline"></i> Delete
-    </button>
+  <div class="ui horizontal divider">
+    Or
   </div>
+
+  <button class="ui fluid negative huge button" {{action 'destroyCashbox' model}}>
+    <i class="icon trash outline"></i> Delete
+  </button>
 </div>

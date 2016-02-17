@@ -5,30 +5,64 @@
   editModel=model
 }}{{/top-bar}}
 
-<div>
-  <div class="ui segment">
-    <div class="ui big relaxed center aligned selection divided list">
-      {{#each model.books as |book|}}
-        {{#link-to "books.show" book class="item"}}
-          <i class="icon">
-            <i class="huge icons">
-              <i {{bind-attr class=":book :icon book.isClosed:disabled:teal"}}></i>
-              <i {{bind-attr class=":corner :icon book.isClosed:archive:write"}}></i>
-            </i>
+
+<div class="ui segment">
+  <div class="ui massive relaxed center aligned selection divided list">
+    {{#each model.books as |book|}}
+      {{#link-to "books.show" book class="item"}}
+        <i class="big icon">
+          <i class="large icons">
+            <i {{bind-attr class=":book :icon book.isClosed:disabled:teal"}}></i>
+            <i {{bind-attr class=":corner :icon book.isClosed:archive:write"}}></i>
           </i>
-          <div class="content middle aligned">
-            <div class="header">{{book.name}}</div>
-            <div class="description">
-              {{#if book.isClosed}}
-                {{moment-format book.opened_at 'l'}} - {{moment-format book.closed_at 'l'}}
-              {{else}}
-                Total: {{book.total}}<br>
-                Opened at: {{moment-format book.opened_at 'l'}}<br>
-              {{/if}}
-            </div>
+        </i>
+        <div class="content middle aligned">
+          <div class="header">
+            <h2>{{book.name}}</h2>
           </div>
-        {{/link-to}}
-      {{/each}}
-    </div>
+          <div class="description">
+
+            <div class="ui horizontal relaxed divided list">
+
+            {{#if book.isClosed}}
+              <div class="item">
+                <div class="content">
+                  <div class="header">{{moment-format book.opened_at 'l'}}</div>
+                  <div class="description">Opened</div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="header">{{moment-format book.closed_at 'l'}}</div>
+                  <div class="description">
+                    Closed
+                  </div>
+                </div>
+              </div>
+            {{else}}
+
+              <div class="item">
+                <div class="content">
+                  <div class="header">{{moment-format book.opened_at 'l'}}</div>
+                  <div class="description">Opened</div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="header">{{book.total}} <i class="fitted euro icon currency_symbol"></i></div>
+                  <div class="description">
+                    Total
+                  </div>
+                </div>
+              </div>
+
+            {{/if}}
+
+            </div>
+
+          </div>
+        </div>
+      {{/link-to}}
+    {{/each}}
   </div>
 </div>
